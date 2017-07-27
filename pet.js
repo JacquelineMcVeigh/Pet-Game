@@ -140,6 +140,7 @@ var tastes = ['egg yolks', 'carrots', 'chicken', 'broccoli', 'duck', 'rabbit', '
 
 window.addEventListener('keydown', keyDown);
 window.addEventListener('keyup', keyUp);
+window.addEventListener('mousemove', mouseMove);
 
 var startButton = document.getElementById('startButton');
 startButton.addEventListener('click', function() {
@@ -161,7 +162,7 @@ inventoryButton.addEventListener('click', function() {
 var shopButton = document.getElementById('shopButton');
 var supplyShop = document.getElementById('supplyShop');
 shopButton.addEventListener('click', function() {
-	supplyShop.style.display = 'block';
+  supplyShop.style.display = 'block';
   if(currentScreen != supplyShop) {
       changeScreen('supplyShop');
     } else {
@@ -291,7 +292,7 @@ var startBubbleMiniGame = document.getElementById('startBubbleMiniGame');
 startBubbleMiniGame.addEventListener('click', function() {
   var playerYes = confirm("Are you sure that you would like to give your dog a bath");
   if (playerYes == true) {
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 1; i++) {
       var bubble = new Bubble();
       bubble.y = -500;
       bubble.x = Math.random() * 500;
@@ -679,6 +680,29 @@ function checkCollisionWithPlayer(object) {
     return false
   }
 }
+
+function checkCollisionWithXY(x, y, object) {
+  var posLeftX = x;
+  var posRightX = x;
+  var posTopY = y;
+  var posBottomY = y;
+
+  var objectLeftX = object.x;
+  var objectRightX = objectLeftX + 100;
+  var objectTopY = object.y;
+  var objectBottomY = objectTopY - 100;
+
+  // compare points and see if they hit
+  if(posLeftX < objectRightX &&
+   posRightX > objectLeftX &&
+   posBottomY < objectBottomY &&
+   posTopY > objectTopY) {
+    return true;
+  } else {
+    return false
+  }
+}
+
 
 function tickBubbleGame() {
   for(var bubbleIndex = 0; bubbleIndex < bubbles.length; bubbleIndex++) {
@@ -1144,5 +1168,24 @@ function keyUp(eventData) {
     // up arrow
   } else if(eventData.keyCode == 40) {
     // down arrow
+  }
+}
+
+function mouseMove(eventData) {
+  var mouseX = eventData.clientX;
+  var mouseY = eventData.clientY;
+
+  if(gameState == 'bubbleGame') {
+    for(var bubbleIndex = 0; bubbleIndex < bubbles.length; bubbleIndex++) {
+      var bubble = bubbles[bubbleIndex];
+
+      console.log([mouseX, mouseY, bubble.x, bubble.y]);
+
+      if(checkCollisionWithXY(mouseX, -mouseY, bubble)) {
+        var specialBubble = new Bubble('fading');
+        specialBubble.x = bubble.x;
+        specialBubble.y = bubble.y;
+      }
+    }
   }
 }
