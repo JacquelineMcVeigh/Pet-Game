@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="pet.css">
+</head>
+
+<body>
+  <div id='navigation'>
+    <div id="petStatusButton">Pet Status</div>
+
+    <div id="mapButton">Map</div>
+    <div id="inventoryButton">Inventory</div>
+    
+    <div id="shopButton">Shop</div>
+
+    
+    <div id="playerMoney">
+      <img src="images/coin-1-hi.png" />
+      <span id="playerMoneyCount">250</span>
+    </div>
+  </div>
+
+  <div id="playerInstructions" class="screen">
+    Hello and welcome to own your own pet! Click "Start" to begin.
+
+    <div id="startButton">Start</div>
+  </div>
+
+  <div id="mapScreen" class="screen">
+    <img id="houseInMap" src="images/house.gif" />
+    <img id="groceryStoreInMap" src="images/groceryStore.png" />
+    <img id="marketStallInMap" src="images/marketStand.png" />
+  </div>
+
+  <div id="petStore" class="building screen">
+     <img src="images/petStore.png" />
+  </div>
+  
+  <div id="marketStall" class="screen">
+    <button id="marketSellButton">Sell Items</button>
+    <div id="marketStallDisplay"></div>
+    <img id="marketBackground" src="images/marketstallBackground.png" />
+  </div>
+
+  <div id="groceryStore" class="building screen">
+     <img src="images/groceryStore.png" />
+  </div>
+
+  <div id="groceryStoreInternal" class="building screen">
+     <img class="background" src="images/groceryStoreInternal.jpg" />
+     <div class="">
+     </div>
+  </div>
+
+  <div id="house" class="building screen">
+    <img src="images/house.gif"/>
+  </div>
+  
+  <div id="livingRoom" class="room screen">
+    <img src="images/livingRoom.jpg"/>
+    <div id="petCarrier" class="petEssential">
+      <img src="images/petCarrier.png"/>
+    </div>
+    
+    <div id="foodBowl">
+      <img id="emptyBowl" src="images/bowl.png" />
+      
+      <img id="fullBowl" src="images/fullFoodBowl.png" />
+    </div>
+    
+    <div id="waterBowl">
+      <img id="emptyWaterBowl" src="images/bowl.png" />
+      
+      <img id="fullWaterBowl" src="images/fullWaterBowl.png" />
+    </div>
+
+    <div id="walkButton" class="houseNavigation"></div>
+    <div id="kitchenButton" class="houseNavigation"></div>
+  </div>
+
+  <div id="kitchen" class="room screen">
+    <div id="ovenButton" class="houseNavigation"></div>
+    <img src="images/arrow.png" class="arrow toLivingRoom" />
+    <img src="images/arrow.png" class="arrow left toBathroom" />
+  </div>
+
+  <div id="cookingScreen" class="screen">
+    <img src="images/mixingBowl.gif" />
+    <div id="ingredientShelf">
+      
+    </div>
+
+    <div id="mixButton">MIX!!!</div>
+
+    <img src="images/arrow.png" class="arrow goBack">
+  </div>
+
+  <div id="bathroom" class="screen">
+    <img src="images/bathroom.png" />
+    <img src="images/arrow.png" class="arrow left toKitchen" />
+
+    <div id="startBubbleMiniGame" class="houseNavigation"></div>
+  </div>
+
+  <div id="petStatus" class='screen'>
+    <table>
+      <tr>
+        <th>Name</th>
+        <td id="petName"></td>
+      </tr>
+
+      <tr>
+        <th>Age (birthday)</th>
+        <td id="petAge"></td>
+      </tr>
+
+      <tr>
+        <th>Gender</th>
+        <td id=""></td>
+      </tr>
+
+      <tr>
+        <th>Hunger Level</th>
+        <td id="">
+          <div id="hungerBar" class="statusBar"></div>
+        </td>
+      </tr>
+
+      <tr>
+        <th>Thirst Level</th>
+        <td id=""><div id="thirstBar" class="statusBar"></div></td>
+      </tr>
+
+      <tr>
+        <th>Dirt Level</th>
+        <td id=""><div id="dirtBar" class="statusBar"></div></td>
+      </tr>
+
+      <tr>
+        <th>Bathroom Level</th>
+        <td id=""><div id="bathroomBar" class="statusBar"></div></td>
+      </tr>
+
+      <tr>
+        <th>Level</th>
+        <td id=""></td>
+      </tr>
+    </table>
+  </div>
+
+  <div id="sidewalk" class='screen'>
+    <img src="images/park.jpg" />
+
+    <div id="lifeHearts">
+      <img class="walkHeart" src="images/heart.png" />
+      <img class="walkHeart" src="images/heart.png" />
+      <img class="walkHeart" src="images/heart.png" />
+    </div>
+  </div>
+  
+  <div id="walkMiniGameOverScreen" class="screen">
+    <div id="replayWalkGame" class="button">Replay the Game</div>
+  </div>
+
+  <div id="supplyShop" class='screen'>
+    <div id="necessitiesShopCategory">
+
+      <!-- <div class="shopItem" data-title="regularShampoo" data-price="6">
+        <img src="http://4.bp.blogspot.com/-iYQB62rnhtk/UHwyEg9BhoI/AAAAAAAAADw/ICDuisoDRFA/s1600/shampoo%201.png" />
+        <div><b>$6</b></div>
+        <div><b>Regular Shampoo</b></div>
+      </div> -->
+    </div>
+  </div>
+  
+  <div id="inventory" class='screen'>
+    <div id="noItems">You do not have any items in your inventory yet. To care for your pet you must buy items from the shop. Good luck!</div>
+  </div>
+  
+  <div id="selectDog" class="pet">Dog</div>
+  <div id="selectCat" class="pet">Cat</div>
+
+  <div id="selectableDogs">
+    <!-- <img class="petImage" id="dogA" src="http://www.dognameguide.com/images/dog.gif"> -->
+  </div>
+  
+  <div id="selectableCats">
+    <!-- temporary; to be coded like selectableDogs in javascript -->
+    <img class="petImage" id="catA" src="images/cat.png" >
+  </div>
+
+  <div id="redScreen"></div>
+
+  <script type="text/javascript" src="pet.js"></script>
+</body>
+</html>
